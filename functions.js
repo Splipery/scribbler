@@ -4,6 +4,7 @@ const DEFAULT_LINE_COLOUR = '#000000';
 
 let alwaysOn = true;
 let currentlyOn = true;
+let randomColours = false;
 let lineColour = DEFAULT_LINE_COLOUR;
 
 function setColor(colour){
@@ -39,7 +40,6 @@ function setGrid(sideLength){
 }
 
 function createLine(lineLength){
-    //First, create a line of appropriate length
     const lineDiv = document.createElement('div');
     lineDiv.classList.add('lineContainer');
     
@@ -57,21 +57,26 @@ function createLine(lineLength){
 
 function flipColour(e){
     if(alwaysOn || currentlyOn){ 
+        if(randomColours) { 
+            lineColour = '#' + Math.floor(Math.random()*16777215).toString(16); 
+            console.log(lineColour);
+        }
         this.setAttribute('style', `background-color: ${lineColour};`);
+        
     }
 }
 
 function toggleOn(e){
     alwaysOn = !alwaysOn;
     currentlyOn = alwaysOn;
-    if(alwaysOn){
-        alwaysOnToggle.textContent = "Switch to draw on click";
+    if(!alwaysOnToggle.classList.contains('selected')){
+        alwaysOnToggle.classList.add('selected');
     } else {
-        alwaysOnToggle.textContent = "Switch to always on";
+        alwaysOnToggle.classList.remove('selected');
     }
 }
 
-function highlightButton(e){
+function highlightButton(e) {
     if(!this.classList.contains('selected')){
         this.classList.add('selected');
     } else {
@@ -96,6 +101,11 @@ function drawActive() { currentlyOn = true; }
 
 function drawDisable() { currentlyOn = false; }
 
+function toggleRandomise() { 
+    randomColours = !randomColours;
+    setColor(cPicker.value);
+}
+
 const alwaysOnToggle = document.querySelector('#alwaysOn');
 alwaysOnToggle.addEventListener('click', toggleOn);
 
@@ -106,7 +116,11 @@ const w = document.querySelector('body');
 w.addEventListener('mousedown', drawActive);
 w.addEventListener('mouseup', drawDisable);
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => button.addEventListener('click', highlightButton));
+const randomButton = document.querySelector('#randomColour');
+randomButton.addEventListener('click', toggleRandomise);
+randomButton.addEventListener('click', highlightButton);
+
+const toggles = document.querySelectorAll('#toggles');
+toggles.forEach(toggle => toggle.addEventListener('click', highlightButton));
 
 setGrid(DEFAULT_GRID_SIZE);

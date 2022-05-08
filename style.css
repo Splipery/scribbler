@@ -1,7 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#container {
+    flex: 1;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 50px;
+}
+
+#controlContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
 #drawPane {
-    border: 1px solid blueviolet;
-    width: 700px;
-    height: 700px;
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
 }
