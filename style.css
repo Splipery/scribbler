@@ -15,3 +15,7 @@
 .cell {
     flex: 1;
 }
+
+.selected {
+    border: 5px solid fuchsia;
+}
