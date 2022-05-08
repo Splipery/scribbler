@@ -1,0 +1,17 @@
+#drawPane {
+    border: 1px solid blueviolet;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.lineContainer {
+    display: flex;
+    flex: 1;
+}
+
+
+.cell {
+    flex: 1;
+}
