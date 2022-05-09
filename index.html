@@ -4,36 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scribbler</title>
+    <title>Scribbler.</title>
     <script src="functions.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Scribbler</h1>
+    <h1>Scribbler.</h1>
     <div id="container">
+        
         <div id="controlContainer">
-            <button id="alwaysOn" class="selected toggles">Always On</button>
-            <div id="cSet">
+            
+                <button id="alwaysOn" class="selected toggles">Always On</button>
+            
+            <div class="ctrlGrp">
                 <label for="cPicker">Select colour: </label>
                 <input type="color" id="cPicker">
             </div>
-            <button id="randomColour" class="toggles">Paint Random Colours</button>
-            <input type="range" min="1" max="100" value="16" class="slider" id="sideSetter" list="tickmarks">
-            <datalist id="tickmarks">
-                <option value="0"></option>
-                <option value="10"></option>
-                <option value="20"></option>
-                <option value="30"></option>
-                <option value="40"></option>
-                <option value="50"></option>
-                <option value="60"></option>
-                <option value="70"></option>
-                <option value="80"></option>
-                <option value="90"></option>
-                <option value="100"></option>
-            </datalist>
-            <div id="gridSize"></div>
-            <button id="reset">Reset Grid</button>
+            
+                <button id="randomColour" class="toggles">Paint Random Colours</button>
+                <button id="shading" class="toggles">Shade Colours</button>
+            
+            <div class="ctrlGrp">
+                <label for="sideSetter">Resize Grid</label>
+                <input type="range" min="1" max="100" value="16" class="slider" id="sideSetter" list="tickmarks">
+                <datalist id="tickmarks">
+                    <option value="0"></option>
+                    <option value="10"></option>
+                    <option value="20"></option>
+                    <option value="30"></option>
+                    <option value="40"></option>
+                    <option value="50"></option>
+                    <option value="60"></option>
+                    <option value="70"></option>
+                    <option value="80"></option>
+                    <option value="90"></option>
+                    <option value="100"></option>
+                </datalist>
+                <div id="gridSize"></div>
+            </div>
+
+            
+            
+                <button id="reset">Reset Grid</button>
+            
         </div>
 
         <div id="drawPane"></div>
